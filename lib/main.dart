@@ -1,7 +1,8 @@
+// ウィジェットを利用可能にするimport
 import 'package:flutter/material.dart';
-
+// エントリーポイント
 void main() => runApp(MyApp());
-
+// ステートレスウィジェット
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+// ステートフルウィジェット WidgetとStateで成り立つ
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -38,15 +39,16 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
-
+  // Stateの作成 createStateは必ず定義する
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
+// State<>の中身はWidgetのクラス名
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    // Stateのインスタンス変数を変更する場合はsetStateを通して変更すること
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -56,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
+  // ボタンのウィジェット
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -102,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _incrementCounter, // ボタン押下時のイベント処理
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
